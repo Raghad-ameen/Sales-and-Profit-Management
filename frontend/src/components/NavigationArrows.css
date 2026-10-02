@@ -1,0 +1,34 @@
+.nav-arrows-wrapper-clean {
+    display: flex !important;
+    gap: 15px !important;
+    direction: ltr !important;
+    align-items: center !important;
+    background: transparent !important;
+}
+
+.nav-arrow-minimal {
+    /* مسح شامل لكل التنسيقات والدوائر */
+    background: none !important;
+    background-color: transparent !important;
+    border: none !important;
+    border-radius: 0 !important; /* لضمان عدم وجود دائرة */
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    outline: none !important;
+    
+    /* تنسيق اللون Bold */
+    color: #44ACFF !important;
+    cursor: pointer;
+    display: flex !important;
+    transition: transform 0.2s ease;
+}
+
+.nav-arrow-minimal:hover {
+    transform: scale(1.2);
+}
+
+.nav-arrow-minimal svg {
+    stroke: #44ACFF !important;
+    fill: none !important;
+}

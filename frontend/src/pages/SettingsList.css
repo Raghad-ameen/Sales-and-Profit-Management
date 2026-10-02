@@ -1,0 +1,281 @@
+/* SettingsList.css - النسخة المدمجة النهائية */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+.products-container, .dashboard-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    /* يبدأ من تحت الناف بار العلوي */
+    top: 60px; /* استبدلي 60px بارتفاع الناف بار الحقيقي عندك */
+    left: 0;
+}
+
+.settings-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    max-width: 900px; 
+    margin: 0 auto;  
+}
+
+.settings-title {
+    border-right: 4px solid #44ACFF;
+    padding-right: 15px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: 'Cairo', sans-serif;
+    color: #333;
+}
+
+/* تنسيق الحقول */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+}
+
+.form-group label {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.custom-input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+.custom-input:focus {
+    outline: none;
+    border-color: #44ACFF !important;
+    box-shadow: 0 0 5px rgba(109, 147, 157, 0.2);
+}
+
+/* الأزرار */
+.btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.save-changes-btn {
+    background-color: #44ACFF;
+    color: white;
+    border: none;
+    padding: 12px 40px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Cairo';
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.save-changes-btn:hover {
+    background-color: #5a7d86;
+}
+
+/* تصميم مفتاح التبديل (Switch) */
+.switch { position: relative; display: inline-block; width: 50px; height: 26px; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider { 
+    position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; 
+    background-color: #ccc; transition: .4s; border-radius: 34px; 
+}
+.slider:before { 
+    position: absolute; content: ""; height: 18px; width: 18px; left: 4px; bottom: 4px; 
+    background-color: white; transition: .4s; border-radius: 50%; 
+}
+input:checked + .slider { background-color: #44ACFF; }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* إضافات المظهر */
+.divider {
+    margin: 40px 0;
+    border: 0;
+    border-top: 1px solid #eee;
+}
+
+.dark-mode-toggle {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.mode-status {
+    font-family: 'Cairo', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.active-text { color: #44ACFF !important; }
+.active-text-off { color: #ff4d4f !important; }
+
+/* الوضع الليلي */
+.dark-mode-active .settings-card {
+    background-color: #1e1e1e !important;
+    color: white;
+}
+
+.dark-mode-active .settings-title { color: #fff; }
+
+.dark-mode-active .custom-input {
+    background-color: #2d2d2d !important;
+    color: white !important;
+    border-color: #444 !important;
+}
+
+.dark-mode-active .form-group label { color: #aaa; }
+.dark-mode-active .divider { border-color: #333; }
+
+
+.sidebar {
+  margin-top: 0;
+    width: 260px;
+    height: calc(100vh - 60px); 
+    flex-shrink: 0;
+    background: #f0f2f5;
+    border-left: 1px solid #e0e0e0;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    gap: 2px
+    
+}
+.sidebar-card {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 0;
+}
+.sidebar-card.store-info {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 15px; /* زيادة الحشو العلوي والسفلي قليلاً */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  
+  /* الجزء المسؤول عن التوسط */
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر فوق بعضها */
+  align-items: center;    /* التوسط الأفقي */
+  justify-content: center; /* التوسط العمودي */
+  text-align: center;     /* ضمان وسطية النص نفسه */
+}
+
+.sidebar-card.store-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+  word-break: break-word; /* لضمان عدم خروج الأسماء الطويلة عن الكرت */
+}
+
+.menu-nav {
+    flex: 1; /* يشغل كل المساحة المتاحة بين كرت المتجر وزر الخروج */
+    display: flex;
+    flex-direction: column;
+    
+    /* هذا السطر يوزع العناصر بحيث تكون المسافة فوق "الرئيسية" 
+       مساوية للمسافة تحت "الإعدادات" تماماً */
+    justify-content: space-between; 
+    
+    /* نتحكم في التباعد الداخلي بدقة */
+    padding: 30px 10px; /* زيادة الرقم 30 تزيد المسافة من فوق وتحت معاً */
+    
+    margin: 0; /* إلغاء أي مارجن خارجي قد يسبب عدم توازن */
+    overflow-y: auto; 
+    gap: 5px;
+    overflow-y: scroll;
+}
+/* الجزء الأوسط من السايد بار - مع إظهار السكرول بار */
+.menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* يبدأ من الأعلى لتقليل المسافات */
+    padding: 5px 10px; /* مارجن علوي وسفلي صغير جداً */
+    gap: 2px;
+    margin: 0;
+    
+    /* تفعيل السكرول بار العمودي */
+    overflow-y: scroll; /* يظهر شريط التمرير دائماً حتى لو العناصر قليلة */
+    /* أو استخدم overflow-y: auto; ليظهر فقط عند الحاجة */
+}
+
+/* --- تنسيق شكل السكرول بار (للمتصفحات مثل Chrome و Edge) --- */
+.menu-nav::-webkit-scrollbar {
+    width: 6px; /* عرض شريط التمرير */
+}
+
+.menu-nav::-webkit-scrollbar-track {
+    background: #f1f1f1; /* لون خلفية مسار السكرول */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb {
+    background: #ccc; /* لون شريط التمرير نفسه */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb:hover {
+    background: #44ACFF; /* يتغير لونه عند التأشير عليه */
+}
+
+/* إعدادات الروابط (تقليل الحجم والمسافات) */
+.menu-nav a {
+    padding: 8px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #555;
+    border-radius: 6px;
+    display: block;
+    transition: 0.3s;
+    flex-shrink: 0; /* يمنع الروابط من الانضغاط لضمان عمل السكرول */
+}
+
+.menu-nav a {
+  text-decoration: none;
+  color: #555;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.menu-nav a:hover, .menu-nav a.active {
+  background-color: #44ACFF;
+  color: white;
+}
+
+.logout-btn-card {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}

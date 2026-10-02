@@ -1,0 +1,291 @@
+
+/* Dashboard.css */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+.dashboard-wrapper {
+  display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    /* يبدأ من تحت الناف بار العلوي */
+    top: 60px; /* استبدلي 60px بارتفاع الناف بار الحقيقي عندك */
+    left: 0;
+  background-color: #f0f2f5; /* لون خلفية أهدأ */
+  font-family: 'Cairo', sans-serif !important;
+  direction: rtl;
+}
+
+/* الحاوية الأساسية للسايد بار - تضمن المسافات بين الكروت */
+.sidebar {
+    width: 270px;
+    height: 100vh;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px !important; /* فرض المسافة بين الأقسام */
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+}
+
+/* الكروت الثلاثة - تأكد من أنها تأخذ العرض الكامل وتفصل المحتوى */
+.sidebar-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    width: 100% !important; /* لضمان عدم تقلص الكرت */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* كرت المعلومات (Avatar) */
+.store-info {
+    padding: 20px 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* كرت القائمة (المنيو) - هنا يكمن سر التوازن */
+.menu-nav {
+    flex: 1; /* جعل المنيو يأخذ أكبر مساحة ممكنة في الوسط */
+    padding: 15px 10px;
+    justify-content: center; /* يتوسط الروابط عمودياً داخل الكرت */
+    gap: 12px; /* مسافة بين الروابط نفسها */
+}
+
+/* تنسيق الروابط - جعلها أزراراً موحدة العرض */
+.menu-nav a {
+    text-decoration: none;
+    color: #64748b;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center; /* توسيط النص داخل الزر */
+    transition: all 0.2s ease;
+    display: block; /* لضمان أخذ العرض المتاح */
+    width: 85%; /* عرض موحد لكل الأزرار */
+    margin: 0 auto; /* توسيط الزر داخل الكرت */
+}
+
+/* الرابط النشط (Active) - يظهر بشكل بارز واحترافي */
+.menu-nav a.active {
+    background-color: #44ACFF !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(68, 172, 255, 0.3);
+}
+
+.menu-nav a:hover:not(.active) {
+    background-color: #f1f5f9;
+    color: #44ACFF;
+}
+
+/* كرت تسجيل الخروج (السفلي) */
+.logout-section {
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.logout-btn-card {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+}
+
+
+/* --- تنسيق شكل السكرول بار (للمتصفحات مثل Chrome و Edge) --- */
+.menu-nav::-webkit-scrollbar {
+    width: 6px; /* عرض شريط التمرير */
+}
+
+.menu-nav::-webkit-scrollbar-track {
+    background: #f1f1f1; /* لون خلفية مسار السكرول */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb {
+    background: #ccc; /* لون شريط التمرير نفسه */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb:hover {
+    background: #44ACFF; /* يتغير لونه عند التأشير عليه */
+}
+
+.dashboard-wrapper, .products-container {
+    display: flex;
+    height: 100vh; /* ثبات الطول */
+    width: 100vw;
+    overflow: hidden; /* منع الزنبرك */
+    position: fixed;
+    top: 60px; /* المسافة تحت الناف بار */
+    left: 0;
+}
+
+
+.main-content {
+    flex: 1;
+    height: calc(100vh - 60px);
+    overflow-y: auto; /* السكرول الأساسي هنا */
+    padding-bottom: 150px; /* لضمان عدم اقتطاع الأزرار */
+    overscroll-behavior-y: contain; /* منع الارتداد */
+}
+
+
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.stat-card h3 { color: #888; font-size: 16px; margin-bottom: 10px; }
+.stat-card .price { font-size: 24px; font-weight: bold; color: #333; }
+
+.price-input-group input {
+  flex: 1; /* يجعل حقل الرقم يأخذ المساحة الأكبر */
+}
+
+.back-btn, .save-sale-btn {
+    background-color: #44ACFF !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 10px 30px !important;
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 25px; 
+}
+
+.back-btn:hover {
+    background-color: #5a7a82 !important;
+    transform: translateY(-2px);
+}
+
+/* تحسين شكل جدول المبيعات */
+.data-table {
+    border-collapse: separate;
+    border-spacing: 0 10px; /* يعطي مسافة بين الصفوف كما في تصميم الكروت */
+}
+
+.data-table tr {
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.sale-input-field {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 4px;
+    width: 60px;
+    text-align: center;
+}
+
+
+
+
+/* نصوص التبديل (Switch) */
+.active-text {
+    font-weight: bold;
+    color: #44ACFF; 
+}
+
+
+/* هذا الكود يعمل فقططط عندما تكون الحالة (مفعل) */
+body.dark-mode-active {
+    background-color: #121212 !important; /* خلفية الموقع كاملة سوداء */
+    color: #ffffff !important;
+}
+
+body.dark-mode-active .dashboard-wrapper,
+body.dark-mode-active .sidebar {
+    background-color: #121212 !important;
+    border-color: #333 !important;
+}
+
+/* الكروت تظل سوداء فخمة في الوضعين لكن تبرز أكثر في الدارك مود */
+body.dark-mode-active .stat-card, 
+body.dark-mode-active .table-card, 
+body.dark-mode-active .add-product-section {
+    background-color: #1a1a1a !important;
+    border: 1px solid #333 !important;
+}
+.table-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    /* أضيفي هذه الأسطر */
+    min-width: 0; 
+    display: flex;
+    flex-direction: column;
+}
+
+
+.chart-title {
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.dashboard-wrapper {
+    background-color: #f0f2f5;
+    min-height: 100vh;
+}
+
+.page-title {
+    font-family: 'Cairo', sans-serif;
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+.subtle-action-btn {
+    background: none;
+    border: none;
+    color: #c42626; 
+    font-family: 'Cairo', sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 2px 5px;
+    transition: opacity 0.2s;
+    text-decoration: underline; /* اختيار اختياري لزيادة وضوح أنه قابل للضغط */
+}
+
+.subtle-action-btn:hover {
+    opacity: 0.7;
+    color: #420c0c;
+}
+
+.animation-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

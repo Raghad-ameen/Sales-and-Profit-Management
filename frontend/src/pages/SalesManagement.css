@@ -1,0 +1,131 @@
+.sidebar {
+  margin-top: 0;
+    width: 260px;
+    height: calc(100vh - 60px); 
+    flex-shrink: 0;
+    background: #f0f2f5;
+    border-left: 1px solid #e0e0e0;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    gap: 2px
+    
+}
+.sidebar-card {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 0;
+}
+.sidebar-card.store-info {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 15px; /* زيادة الحشو العلوي والسفلي قليلاً */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  
+  /* الجزء المسؤول عن التوسط */
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر فوق بعضها */
+  align-items: center;    /* التوسط الأفقي */
+  justify-content: center; /* التوسط العمودي */
+  text-align: center;     /* ضمان وسطية النص نفسه */
+}
+
+.sidebar-card.store-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+  word-break: break-word; /* لضمان عدم خروج الأسماء الطويلة عن الكرت */
+}
+
+.menu-nav {
+    flex: 1; /* يشغل كل المساحة المتاحة بين كرت المتجر وزر الخروج */
+    display: flex;
+    flex-direction: column;
+    
+    /* هذا السطر يوزع العناصر بحيث تكون المسافة فوق "الرئيسية" 
+       مساوية للمسافة تحت "الإعدادات" تماماً */
+    justify-content: space-between; 
+    
+    /* نتحكم في التباعد الداخلي بدقة */
+    padding: 30px 10px; /* زيادة الرقم 30 تزيد المسافة من فوق وتحت معاً */
+    
+    margin: 0; /* إلغاء أي مارجن خارجي قد يسبب عدم توازن */
+    overflow-y: auto; 
+    gap: 5px;
+    overflow-y: scroll;
+}
+/* الجزء الأوسط من السايد بار - مع إظهار السكرول بار */
+.menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* يبدأ من الأعلى لتقليل المسافات */
+    padding: 5px 10px; /* مارجن علوي وسفلي صغير جداً */
+    gap: 2px;
+    margin: 0;
+    
+    /* تفعيل السكرول بار العمودي */
+    overflow-y: scroll; /* يظهر شريط التمرير دائماً حتى لو العناصر قليلة */
+    /* أو استخدم overflow-y: auto; ليظهر فقط عند الحاجة */
+}
+
+/* --- تنسيق شكل السكرول بار (للمتصفحات مثل Chrome و Edge) --- */
+.menu-nav::-webkit-scrollbar {
+    width: 6px; /* عرض شريط التمرير */
+}
+
+.menu-nav::-webkit-scrollbar-track {
+    background: #f1f1f1; /* لون خلفية مسار السكرول */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb {
+    background: #ccc; /* لون شريط التمرير نفسه */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb:hover {
+    background: #44ACFF; /* يتغير لونه عند التأشير عليه */
+}
+
+/* إعدادات الروابط (تقليل الحجم والمسافات) */
+.menu-nav a {
+    padding: 8px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #555;
+    border-radius: 6px;
+    display: block;
+    transition: 0.3s;
+    flex-shrink: 0; /* يمنع الروابط من الانضغاط لضمان عمل السكرول */
+}
+
+.menu-nav a {
+  text-decoration: none;
+  color: #555;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.menu-nav a:hover, .menu-nav a.active {
+  background-color: #44ACFF;
+  color: white;
+}
+
+.logout-btn-card {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}

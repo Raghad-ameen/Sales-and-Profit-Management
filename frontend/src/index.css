@@ -1,0 +1,464 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: "Cairo", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  direction: rtl;
+}
+
+
+/* شريط التنقل */
+/* شريط التنقل */
+nav {
+  display: flex;
+  justify-content: space-between; /* توزيع العناصر بين الطرفين */
+  align-items: center;            /* يرفع كل العناصر للوسط عمودياً */
+  padding: 10px 20px;
+  height: 60px;                   /* ارتفاع ثابت للناف بار */
+  box-sizing: border-box;
+}
+
+/* الأيقونة في الطرف */
+nav .menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+  color: #44ACFF;
+  display: flex;
+  align-items: center;            /* الأيقونة نفسها في الوسط */
+}
+
+/* الروابط في الوسط */
+nav .links {
+  flex: 1; 
+  display: flex;
+  justify-content: center;        /* الروابط في الوسط أفقياً */
+  align-items: center;            /* الروابط في الوسط عمودياً */
+}
+
+nav .links a {
+  color: #333;
+  text-decoration: none;
+  margin: 0 12px;
+  font-size: 18px;
+  transition: color 0.3s, border-bottom 0.3s;
+  line-height: 1;                 /* يمنع نزول النص */
+}
+
+nav .links a.active {
+  color: #44ACFF;
+  border-bottom: 2px solid #44ACFF;
+}
+
+nav .links a:hover {
+  color: #44ACFF;
+}
+
+
+/* المحتوى الرئيسي */
+main {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+main h1 {
+  color: #333;
+}
+
+main p {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #555;
+  line-height: 1.8;
+}
+
+main .buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* استهداف الروابط داخل حاوية الأزرار لتأخذ نفس شكل البوتون القديم */
+main .buttons a {
+  padding: 12px 24px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Cairo", sans-serif; 
+  min-width: 160px; 
+  text-align: center;
+  text-decoration: none; /* مهم جداً لإزالة خط الرابط */
+  display: inline-block; /* لكي تعمل أبعاد الـ padding والـ width بشكل صحيح */
+}
+
+.signup {
+  background-color: #44ACFF;
+  color: #fff;
+  border: none;
+}
+
+.login {
+  background-color: #fff;
+  color: #44ACFF;
+  border: 2px solid #44ACFF;
+}
+/* الفوتر */
+footer {
+  background-color: #44ACFF;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 40px;
+}
+
+footer .footer-content {
+  display: flex;
+  justify-content: center;   /* الأعمدة في الوسط */
+  align-items: flex-start;   /* تبدأ من الأعلى */
+  gap: 60px;                 /* مسافة متساوية بين الأعمدة */
+  text-align: center;        /* كل المحتوى في الوسط */
+}
+
+footer .footer-content > div {
+  flex: 1;
+  min-width: 220px;
+}
+
+footer h3 {
+  margin: 0 0 10px 0;        /* العنوان بدون فراغ علوي */
+  text-align: center;        /* العنوان في الوسط */
+}
+
+footer p {
+  margin: 0;                 /* الفقرة تبدأ مباشرة تحت العنوان */
+  line-height: 1.6;
+  text-align: center;        /* نفس محاذاة h3 */
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+margin: 0 ;      
+}
+
+footer ul li {
+  margin: 8px 0;
+}
+
+footer ul li a {
+  color: #fff;
+text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer ul li a:hover {
+color: #186378; /* اللون عند الهوفر */
+  text-decoration: none; /* بدون خط */
+}
+
+footer > p {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #fff; /* نفس لون النصوص في الصفحة */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #186378; /* اللون عند الهوفر */
+  text-decoration: none; /* لا يظهر خط تحت الرابط */
+}
+
+/* هذا الجزء يضمن أن الصفحة تأخذ كامل الشاشة وتضع الفورم في المركز */
+.signup-page-wrapper {
+  display: flex;
+  justify-content: center; /* توسيط أفقي */
+  align-items: center;     /* توسيط رأسي */
+  width: 100vw;            /* كامل عرض الشاشة */
+  min-height: 100vh;       /* كامل طول الشاشة */
+  background-color: #f9f9f9;
+  position: absolute;      /* لضمان عدم تأثره بعناصر أخرى في الصفحة */
+  top: 0;
+  left: 0;
+  z-index: 10;             /* ليبقى فوق أي خلفيات أخرى */
+}
+
+/* تأكد من أن الحاوية البيضاء تملك عرضاً ثابتاً */
+.login-container {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+/* --- تنسيق العنوان الرئيسي --- */
+.login-container h2 {
+  color: #333333; /* لون داكن وأنيق للعنوان */
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px; /* مسافة واضحة بين العنوان وحقول الإدخال */
+}
+
+/* --- تنسيق حقول الإدخال --- */
+.login-container input {
+  width: 100%;
+  padding: 15px 20px;
+  margin-bottom: 20px; /* مسافة ثابتة بين كل حقل وآخر */
+  border: 1px solid #e0e0e0; /* إطار خفيف جداً يحدد الحقل بلطف */
+  border-radius: 10px; /* حواف منحنية ناعمة لحقول الإدخال */
+  font-size: 16px;
+  background-color: #fafafa; /* خلفية أفتح قليلاً من خلفية الصفحة */
+  transition: all 0.3s ease; /* تأثير ناعم عند التفاعل */
+  box-sizing: border-box; /* ضمان الحفاظ على الأبعاد مع الـ padding */
+}
+
+/* تأثير عند الضغط على الحقل (Focus) */
+.login-container input:focus {
+  border-color: #44ACFF; /* تغيير لون الإطار للون الزر المطلوب */
+  background-color: #ffffff; /* تبييض الحقل لزيادة التركيز */
+  outline: none; /* إزالة الإطار الافتراضي المزعج من المتصفح */
+}
+
+/* --- تنسيق زر "دخول" --- */
+.login-container button {
+  width: 100%;
+  padding: 15px;
+  background-color: #44ACFF; /* تطبيق اللون المطلوب بدقة */
+  color: #ffffff; /* نص أبيض لضمان التباين والوضوح */
+  border: none; /* إزالة أي إطار افتراضي */
+  border-radius: 10px; /* نفس حواف حقول الإدخال لضمان التناسق */
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* تأثير ناعم عند تمرير الماوس */
+}
+
+/* تأثير عند تمرير الماوس على الزر (Hover) */
+.login-container button:hover {
+  background-color: #557b85; /* تغميق اللون قليلاً لإعطاء شعور بالتفاعل */
+}
+
+.remember-me-container {
+  display: flex;
+  align-items: center; /* لمحاذاة العناصر عمودياً في المنتصف */
+  justify-content: flex-start; /* لتبدأ العناصر من اليمين (حسب اتجاه الصفحة) */
+  gap: 8px; /* مسافة بسيطة بين المربع والنص */
+  margin-bottom: 15px;
+  direction: rtl; /* لضمان أن الترتيب يبدأ من اليمين */
+}
+
+.remember-me-container input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px; /* ضبط الحجم ليناسب النص */
+  height: 16px;
+  margin: 0; /* إزالة الهوامش الافتراضية */
+}
+
+.remember-me-container label {
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none; /* لمنع تحديد النص عند الضغط المتكرر */
+  white-space: nowrap; /* لمنع انقسام النص إلى سطرين */
+}
+
+/* الحاوية التي وضعناها في App.js */
+.global-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* لتبدأ من جهة اليمين بما أن الموقع RTL */
+    padding: 15px 25px;
+    background-color: var(--card-bg, #ffffff); /* لون البطاقات الذي تستخدمينه */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* تنسيق الأزرار داخل الحاوية */
+.nav-arrows-container {
+    display: flex;
+    gap: 12px;
+    direction: ltr; /* لترتيب الأسهم < > بشكل صحيح */
+}
+
+.nav-arrow-btn {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background: white;
+    color: #44ACFF; /* لونك السماوي الجديد */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-arrow-btn:hover {
+    background-color: #44ACFF;
+    color: white;
+    border-color: #44ACFF;
+    box-shadow: 0 4px 12px rgba(68, 172, 255, 0.2);
+}
+
+/* ========================================================
+   GLOBAL DARK MODE SYSTEM (الوضع الليلي الشامل لجميع الصفحات)
+   ======================================================== */
+
+body.dark-mode-active {
+    background-color: #121214 !important;
+    color: #f1f5f9 !important;
+}
+
+/* تخطيط الصفحات الرئيسي */
+body.dark-mode-active,
+body.dark-mode-active .app-layout,
+body.dark-mode-active .main-viewport,
+body.dark-mode-active .page-content,
+body.dark-mode-active .dashboard-wrapper,
+body.dark-mode-active .products-container,
+body.dark-mode-active .main-content,
+body.dark-mode-active .signup-page-wrapper,
+body.dark-mode-active .login-page-wrapper,
+body.dark-mode-active .home-wrapper {
+    background-color: #121214 !important;
+    color: #f1f5f9 !important;
+}
+
+/* الهيدر العلوي */
+body.dark-mode-active .global-nav-header {
+    background-color: #18181b !important;
+    border-bottom: 1px solid #27272a !important;
+}
+
+body.dark-mode-active .global-nav-header span {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode-active .nav-arrow-btn {
+    background-color: #27272a !important;
+    border-color: #3f3f46 !important;
+    color: #44ACFF !important;
+}
+
+/* السايد بار وجميع كروته */
+body.dark-mode-active .sidebar {
+    background-color: #121214 !important;
+    border-color: #27272a !important;
+}
+
+body.dark-mode-active .sidebar-card,
+body.dark-mode-active .sidebar-card.store-info,
+body.dark-mode-active .sidebar-card.menu-nav,
+body.dark-mode-active .sidebar-card.logout-section {
+    background-color: #18181b !important;
+    border: 1px solid #27272a !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
+}
+
+body.dark-mode-active .sidebar-card.store-info h3 {
+    color: #f8fafc !important;
+}
+
+body.dark-mode-active .menu-nav a {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode-active .menu-nav a:hover:not(.active) {
+    background-color: #27272a !important;
+    color: #44ACFF !important;
+}
+
+body.dark-mode-active .menu-nav a.active {
+    background-color: #44ACFF !important;
+    color: #ffffff !important;
+}
+
+/* جميع البطاقات والحاويات في كافة الصفحات */
+body.dark-mode-active .table-card,
+body.dark-mode-active .settings-card,
+body.dark-mode-active .add-supplier-card,
+body.dark-mode-active .currency-card,
+body.dark-mode-active .stat-card,
+body.dark-mode-active .login-container {
+    background-color: #18181b !important;
+    color: #f1f5f9 !important;
+    border: 1px solid #27272a !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* العناوين والنصوص */
+body.dark-mode-active h1,
+body.dark-mode-active h2,
+body.dark-mode-active h3,
+body.dark-mode-active h4,
+body.dark-mode-active .chart-title,
+body.dark-mode-active .settings-title,
+body.dark-mode-active .table-header h2,
+body.dark-mode-active .content-header h1,
+body.dark-mode-active .content-header h2 {
+    color: #f8fafc !important;
+}
+
+body.dark-mode-active label {
+    color: #cbd5e1 !important;
+}
+
+/* الجداول في كل الصفحات (المنتجات، المبيعات، الموردين) */
+body.dark-mode-active .products-table th {
+    background-color: #27272a !important;
+    color: #94a3b8 !important;
+    border-bottom: 2px solid #3f3f46 !important;
+}
+
+body.dark-mode-active .products-table td {
+    color: #e2e8f0 !important;
+    border-bottom: 1px solid #27272a !important;
+}
+
+body.dark-mode-active .products-table tr:hover {
+    background-color: #202024 !important;
+}
+
+/* حقول الإدخال والاختيار في كل مكان */
+body.dark-mode-active input:not([type="checkbox"]),
+body.dark-mode-active select,
+body.dark-mode-active textarea,
+body.dark-mode-active .custom-input,
+body.dark-mode-active .sale-input-field {
+    background-color: #27272a !important;
+    color: #f8fafc !important;
+    border: 1px solid #3f3f46 !important;
+}
+
+body.dark-mode-active input::placeholder {
+    color: #71717a !important;
+}
+
+/* المودال ونوافذ التعديل */
+body.dark-mode-active .edit-modal-content {
+    background-color: #18181b !important;
+    color: #f8fafc !important;
+    border: 1px solid #3f3f46 !important;
+}
+
+body.dark-mode-active .edit-modal-content h3 {
+    color: #ffffff !important;
+}
+
+/* الفواصل وقوائم التقارير */
+body.dark-mode-active .divider,
+body.dark-mode-active .table-header {
+    border-color: #27272a !important;
+}
+
+

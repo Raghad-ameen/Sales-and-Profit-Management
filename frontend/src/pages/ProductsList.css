@@ -1,0 +1,342 @@
+/* ProductList.css */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+/* هذا الجزء يمنع الصفحة كاملة من الاهتزاز أو الارتداد */
+.products-container, .dashboard-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    /* يبدأ من تحت الناف بار العلوي */
+    top: 60px; /* استبدلي 60px بارتفاع الناف بار الحقيقي عندك */
+    left: 0;
+}
+
+
+
+
+
+
+.table-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 15px;
+}
+
+.products-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+.products-table th {
+  background-color: #f8f9fa;
+  color: #7f8c8d;
+  padding: 15px;
+  font-weight: 600;
+  border-bottom: 2px solid #edf2f7;
+}
+
+.products-table td {
+  padding: 15px;
+  border-bottom: 1px solid #edf2f7;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+/* تأثير عند تمرير الماوس على الصف */
+.products-table tr:hover {
+  background-color: #fcfdfe;
+}
+select {
+    font-family: 'Cairo', sans-serif;
+    cursor: pointer;
+}
+/* الأوسمة (Badges) */
+.status-badge {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.in-stock {
+  background-color: #e6fffa;
+  color: #38b2ac;
+}
+
+.low-stock {
+  background-color: #fff5f5;
+  color: #e53e3e;
+}
+
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 600;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+}
+
+
+.edit-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(2px); 
+    direction: rtl; 
+}
+
+.edit-modal-content {
+    background-color: white;
+    padding: 30px 40px; 
+    border-radius: 15px; 
+    width: 440px; 
+    max-width: 90%; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Cairo', sans-serif;
+    text-align: right;
+}
+
+.edit-modal-content h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #2c3e50;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.edit-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; 
+}
+
+.edit-form-group input {
+    width: 100%; 
+    height: 44px; 
+    padding: 8px 18px; 
+    
+    border: 1px solid #e0e0e0;
+    border-radius: 8px; 
+    font-family: 'Cairo', sans-serif;
+    font-size: 14px;
+    color: #333;
+    transition: border-color 0.2s;
+    box-sizing: border-box; 
+}
+
+.edit-form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.edit-modal-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    width: 100%;
+}
+
+.edit-btn {
+    flex: 1;
+    height: 42px; 
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.edit-btn:hover {
+    opacity: 0.9;
+}
+
+.save-changes-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.cancel-edit-btn {
+    background-color: #93a3a4; 
+    color: white;
+}
+
+/* تنسيق خط Cairo لجميع عناصر SweetAlert */
+.swal2-popup, 
+.swal2-title, 
+.swal2-html-container, 
+.swal2-confirm, 
+.swal2-cancel {
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* تنسيق إضافي للأزرار لجعلها ناعمة وتشبه تصميمك */
+.swal2-styled.swal2-confirm, .swal2-styled.swal2-cancel {
+    border-radius: 8px !important;
+    padding: 10px 25px !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+
+
+
+.sidebar {
+  margin-top: 0;
+    width: 260px;
+    height: calc(100vh - 60px); 
+    flex-shrink: 0;
+    background: #f0f2f5;
+    border-left: 1px solid #e0e0e0;
+    padding: 2px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; 
+    gap: 2px
+    
+}
+.sidebar-card {
+  background: white;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 0;
+}
+.sidebar-card.store-info {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 15px; /* زيادة الحشو العلوي والسفلي قليلاً */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  
+  /* الجزء المسؤول عن التوسط */
+  display: flex;
+  flex-direction: column; /* ترتيب العناصر فوق بعضها */
+  align-items: center;    /* التوسط الأفقي */
+  justify-content: center; /* التوسط العمودي */
+  text-align: center;     /* ضمان وسطية النص نفسه */
+}
+
+.sidebar-card.store-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+  word-break: break-word; /* لضمان عدم خروج الأسماء الطويلة عن الكرت */
+}
+
+.menu-nav {
+    flex: 1; /* يشغل كل المساحة المتاحة بين كرت المتجر وزر الخروج */
+    display: flex;
+    flex-direction: column;
+    
+    /* هذا السطر يوزع العناصر بحيث تكون المسافة فوق "الرئيسية" 
+       مساوية للمسافة تحت "الإعدادات" تماماً */
+    justify-content: space-between; 
+    
+    /* نتحكم في التباعد الداخلي بدقة */
+    padding: 30px 10px; /* زيادة الرقم 30 تزيد المسافة من فوق وتحت معاً */
+    
+    margin: 0; /* إلغاء أي مارجن خارجي قد يسبب عدم توازن */
+    overflow-y: auto; 
+    gap: 5px;
+    overflow-y: scroll;
+}
+/* الجزء الأوسط من السايد بار - مع إظهار السكرول بار */
+.menu-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* يبدأ من الأعلى لتقليل المسافات */
+    padding: 5px 10px; /* مارجن علوي وسفلي صغير جداً */
+    gap: 2px;
+    margin: 0;
+    
+    /* تفعيل السكرول بار العمودي */
+    overflow-y: scroll; /* يظهر شريط التمرير دائماً حتى لو العناصر قليلة */
+    /* أو استخدم overflow-y: auto; ليظهر فقط عند الحاجة */
+}
+
+/* --- تنسيق شكل السكرول بار (للمتصفحات مثل Chrome و Edge) --- */
+.menu-nav::-webkit-scrollbar {
+    width: 6px; /* عرض شريط التمرير */
+}
+
+.menu-nav::-webkit-scrollbar-track {
+    background: #f1f1f1; /* لون خلفية مسار السكرول */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb {
+    background: #ccc; /* لون شريط التمرير نفسه */
+    border-radius: 10px;
+}
+
+.menu-nav::-webkit-scrollbar-thumb:hover {
+    background: #44ACFF; /* يتغير لونه عند التأشير عليه */
+}
+
+/* إعدادات الروابط (تقليل الحجم والمسافات) */
+.menu-nav a {
+    padding: 8px 12px;
+    font-size: 13px;
+    text-decoration: none;
+    color: #555;
+    border-radius: 6px;
+    display: block;
+    transition: 0.3s;
+    flex-shrink: 0; /* يمنع الروابط من الانضغاط لضمان عمل السكرول */
+}
+
+.menu-nav a {
+  text-decoration: none;
+  color: #555;
+  padding: 10px;
+  border-radius: 8px;
+  transition: 0.3s;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.menu-nav a:hover, .menu-nav a.active {
+  background-color: #44ACFF;
+  color: white;
+}
+
+.logout-btn-card {
+  width: 100%;
+  padding: 12px;
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}

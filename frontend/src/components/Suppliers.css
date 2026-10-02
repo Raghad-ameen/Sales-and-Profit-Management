@@ -1,0 +1,283 @@
+/* Supplier.css */
+.products-container, .dashboard-wrapper {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: fixed;
+    /* يبدأ من تحت الناف بار العلوي */
+    top: 60px; /* استبدلي 60px بارتفاع الناف بار الحقيقي عندك */
+    left: 0;
+}
+.add-supplier-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+.supplier-form { display: flex; gap: 15px; flex-wrap: wrap; }
+
+.supplier-form input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px;
+    border: 1px solid #e0e0e0; /* حواف فاتحة كما طلبتِ */
+    border-radius: 8px;
+    font-family: 'Cairo';
+}
+
+
+.whatsapp-link {
+    display: inline-flex;
+    align-items: center;
+    background: none !important; /* إزالة لون الخلفية */
+    border: none !important; /* إزالة الحدود */
+    color: #25d366 !important; /* جعل لون النص هو لون الواتساب الأخضر */
+    padding: 0 !important; /* إزالة البادينج داخلياً */
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+/* الهوفر يغمق اللون قليلاً أو يضيف خطاً تحت النص */
+.whatsapp-link:hover {
+    color: #128c7e !important;
+    text-decoration: underline;
+}
+
+/* تنسيق أيقونة الواتساب لتكون متناسقة */
+.whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px; /* مسافة بين الأيقونة والنص */
+    display: block;
+}
+
+/* تنسيق أزرار العمليات ليكون متناسقاً مع لوحة التحكم */
+.edit-btn, 
+.delete-btn, 
+.back-btn, 
+.whatsapp-link {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 600 !important;
+    letter-spacing: normal !important; /* لضمان عدم تباعد الحروف العربية */
+}
+
+/* تنسيق موحد لجميع أزرار العمليات (تعديل وحذف) */
+/* تنسيق موحد لزر التعديل والحذف */
+.edit-btn, .delete-btn {
+    border: none;
+    color: white;
+    padding: 0 !important;
+    height: 32px !important; /* ارتفاع أنيق وموحد */
+    width: 75px !important;  /* عرض ثابت يمنع التمدد */
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 13px;
+    font-family: 'Cairo', sans-serif !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.edit-btn {
+    background-color: #44ACFF !important; 
+}
+
+/* لون زر الحذف */
+.delete-btn {
+    background-color: #e74c3c !important;
+}
+
+/* تأثير الهوفر للأزرار */
+.edit-btn:hover { background-color: #5a7b85 !important; }
+.delete-btn:hover { background-color: #c0392b !important; }
+
+/* حاوية الأزرار داخل الخلية لضمان التنسيق */
+.operations-wrapper {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* توسيط زر العودة للرئيسية */
+.back-btn-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.back-btn {
+    background-color: #44ACFF;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-family: 'Cairo' !important;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.save-btn {
+    background-color: #44ACFF !important;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Cairo';
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.save-btn:hover {
+    background-color: #5a7b85 !important;
+    transform: translateY(-2px);
+}
+
+
+/* توحيد خط العنوان والأزرار في كل نوافذ SweetAlert */
+.swal2-title {
+    font-family: 'Cairo', sans-serif !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    color: #2c3e50 !important;
+}
+
+.swal2-confirm, .swal2-cancel {
+    font-family: 'Cairo', sans-serif !important;
+    font-weight: 500 !important;
+    padding: 10px 25px !important;
+}
+
+.swal2-input {
+    font-family: 'Cairo' !important;
+    text-align: right !important;
+}
+
+/* الحاوية الكبرى - يجب أن تكون Flex لترتيب السايد بار والمحتوى أفقياً */
+
+/* المحتوى الأساسي - يجب أن يمتد ليملأ باقي الشاشة */
+
+.sidebar {
+    width: 270px;
+    height: 100vh;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px !important; /* فرض المسافة بين الأقسام */
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    position: sticky;
+    top: 0;
+}
+
+/* الكروت الثلاثة - تأكد من أنها تأخذ العرض الكامل وتفصل المحتوى */
+.sidebar-card {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    width: 100% !important; /* لضمان عدم تقلص الكرت */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+}
+
+/* كرت المعلومات (Avatar) */
+.store-info {
+    padding: 20px 10px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* كرت القائمة (المنيو) - هنا يكمن سر التوازن */
+.menu-nav {
+    flex: 1; /* جعل المنيو يأخذ أكبر مساحة ممكنة في الوسط */
+    padding: 15px 10px;
+    justify-content: center; /* يتوسط الروابط عمودياً داخل الكرت */
+    gap: 12px; /* مسافة بين الروابط نفسها */
+}
+
+/* تنسيق الروابط - جعلها أزراراً موحدة العرض */
+.menu-nav a {
+    text-decoration: none;
+    color: #64748b;
+    padding: 12px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center; /* توسيط النص داخل الزر */
+    transition: all 0.2s ease;
+    display: block; /* لضمان أخذ العرض المتاح */
+    width: 85%; /* عرض موحد لكل الأزرار */
+    margin: 0 auto; /* توسيط الزر داخل الكرت */
+}
+
+/* الرابط النشط (Active) - يظهر بشكل بارز واحترافي */
+.menu-nav a.active {
+    background-color: #44ACFF !important;
+    color: white !important;
+    box-shadow: 0 4px 12px rgba(68, 172, 255, 0.3);
+}
+
+.menu-nav a:hover:not(.active) {
+    background-color: #f1f5f9;
+    color: #44ACFF;
+}
+
+/* كرت تسجيل الخروج (السفلي) */
+.logout-section {
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.logout-btn-card {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* منطقة المحتوى هي الوحيدة التي تتحرك */
+.main-content {
+    flex: 1;
+    /* نفس ارتفاع السايد بار لضمان الثبات */
+    height: calc(100vh - 60px);
+    overflow-y: auto;
+    padding: 30px;
+    background-color: #f8f9fa;
+    /* مساحة في القاع لمنع القطع */
+    padding-bottom: 80px; 
+}
+/* تأكدي من إضافة هذه الخصائص بدقة */
+.edit-btn, .delete-btn {
+    display: inline-flex !important; /* لضمان عدم أخذ سطر كامل */
+    justify-content: center;
+    align-items: center;
+    width: 75px !important;    /* عرض ثابت للزر */
+    height: 35px !important;   /* ارتفاع ثابت */
+    padding: 0 !important;     /* إلغاء أي حشو داخلي قد يوسعه */
+    margin: 5px;               /* مسافة بين الزرين */
+    flex-shrink: 0;            /* منع الزر من الانكماش أو التمدد */
+}
+
+.operations-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
